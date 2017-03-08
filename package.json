@@ -1,0 +1,46 @@
+{
+    "name": "vue-paginator",
+    "version": "1.0.0",
+    "description": "vue-paginator",
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "webpack-dev-server --config=webpack.config.js --progress --inline --host=0.0.0.0 --port=8980",
+        "production": "NODE_ENV=production webpack --bail --config=webpack.config.js --progress"
+    },
+    "author": "zlfund inc",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "babel-core": "^6.18.2",
+        "babel-loader": "^6.2.8",
+        "babel-plugin-transform-object-rest-spread": "^6.20.2",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-latest": "^6.16.0",
+        "css-loader": "^0.26.0",
+        "extract-text-webpack-plugin": "^2.0.0-beta.5",
+        "file-loader": "^0.9.0",
+        "html-loader": "^0.4.4",
+        "html-webpack-plugin": "^2.26.0",
+        "json-server": "^0.9.1",
+        "normalize.css": "^5.0.0",
+        "postcss-cssnext": "^2.8.0",
+        "postcss-nested": "^1.0.0",
+        "postcss-smart-import": "^0.5.1",
+        "style-loader": "^0.13.1",
+        "vue": "^2.1.10",
+        "vue-loader": "^10.0.0",
+        "vue-template-compiler": "^2.1.10",
+        "webpack": "^2.2.0",
+        "webpack-dev-server": "^2.2.0"
+    },
+    "babel": {
+        "presets": [
+            "latest"
+        ],
+        "plugins": [
+            "transform-object-rest-spread"
+        ]
+    },
+    "moduleRoots": [
+        "src"
+    ]
+}
