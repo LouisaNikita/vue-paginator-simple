@@ -1,0 +1,25 @@
+
+.pagination[data-v-7ce5917a]{
+    width: 100%;
+    text-align: center;
+}
+.pagination > ul[data-v-7ce5917a]{
+    margin: 40px 0 60px 0;
+}
+.pagination > ul > li[data-v-7ce5917a]{
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 9px;
+    border: 1px solid #e1e1eb;
+    margin-right: 5px;
+}
+.pagination > ul > li.active[data-v-7ce5917a]{
+    background: #4078c0;
+    color: #fff;
+}
+.pagination > ul > li.ellipsis[data-v-7ce5917a]{
+    border: none;
+}
+.pagination > ul > li.disabled[data-v-7ce5917a]{
+    color: #dcdcdc;
+}

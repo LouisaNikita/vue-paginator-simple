@@ -1,12 +1,11 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var config = {
-    entry: './src',
+    entry: './example/index',
     output: {
-        library: 'VuePaginatorSimple',
-        libraryTarget: 'umd',
-        filename: 'vue-paginator-simple.js',
-        path: './dist'
+        filename: '[name].js',
+        publicPath: '/'
     },
     module: {
         rules: [{
@@ -27,13 +26,10 @@ var config = {
             loader: 'babel-loader',
         }]
     },
-    externals: {
-        vue: 'Vue'
-    },
     plugins: [
-        // new HtmlWebpackPlugin({
-        //     template: './example/index.html'
-        // }),
+        new HtmlWebpackPlugin({
+            template: './example/index.html'
+        }),
         new ExtractTextPlugin('vue-paginator-simple.css')
     ],
     resolve: {

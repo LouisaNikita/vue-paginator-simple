@@ -63,29 +63,28 @@
 </script>
 
 <style lang="css" scoped>
-    @import 'styles/vars.css';
     .pagination{
-        width: 660px;
+        width: 100%;
         text-align: center;
-        ul{
-            margin: 40px 0 60px 0;
-            li{
-                cursor: pointer;
-                display: inline-block;
-                padding: 5px 9px;
-                border: 1px solid #e1e1eb;
-                margin-right: 5px;
-                &.active{
-                    background: #4078c0;
-                    color: #fff;
-                }
-                &.ellipsis{
-                    border: none;
-                }
-                &.disabled{
-                    color: #dcdcdc;
-                }
-            }
-        }
+    }
+    .pagination > ul{
+        margin: 40px 0 60px 0;
+    }
+    .pagination > ul > li{
+        cursor: pointer;
+        display: inline-block;
+        padding: 5px 9px;
+        border: 1px solid #e1e1eb;
+        margin-right: 5px;
+    }
+    .pagination > ul > li.active{
+        background: #4078c0;
+        color: #fff;
+    }
+    .pagination > ul > li.ellipsis{
+        border: none;
+    }
+    .pagination > ul > li.disabled{
+        color: #dcdcdc;
     }
 </style>
