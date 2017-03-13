@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Vue"));
+		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define(["Vue"], factory);
+		define([], factory);
 	else if(typeof exports === 'object')
-		exports["VuePaginatorSimple"] = factory(require("Vue"));
+		exports["VuePaginatorSimple"] = factory();
 	else
-		root["VuePaginatorSimple"] = factory(root["Vue"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+		root["VuePaginatorSimple"] = factory();
+})(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -82,13 +82,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /* styles */
-__webpack_require__(3)
+__webpack_require__(2)
 
-var Component = __webpack_require__(4)(
+var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(2),
+  __webpack_require__(1),
   /* template */
-  __webpack_require__(5),
+  __webpack_require__(4),
   /* scopeId */
   "data-v-7ce5917a",
   /* cssModules */
@@ -116,12 +116,6 @@ module.exports = Component.exports
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -146,11 +140,16 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 exports.default = {
-    props: ['pageCount'],
+    props: ['pageCount', 'initPage'],
     data: function data() {
         return {
             curPage: 1
         };
+    },
+    created: function created() {
+        if (this.initPage !== 1 && this.initPage) {
+            this.curPage = this.initPage;
+        }
     },
 
     computed: {
@@ -195,13 +194,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = function normalizeComponent (
@@ -254,7 +253,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -330,7 +329,7 @@ if (false) {
 }
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -340,14 +339,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _vue = __webpack_require__(1);
+var _paginator = __webpack_require__(0);
 
-var _vue2 = _interopRequireDefault(_vue);
+var _paginator2 = _interopRequireDefault(_paginator);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var paginator = _vue2.default.extend(__webpack_require__(0));
-exports.default = paginator;
+exports.default = _paginator2.default;
 
 /***/ })
 /******/ ]);

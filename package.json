@@ -1,6 +1,6 @@
 {
     "name": "vue-paginator-simple",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A simple paginator for vue.js.",
     "main": "dist/vue-paginator-simple.js",
     "scripts": {
