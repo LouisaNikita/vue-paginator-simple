@@ -14,11 +14,16 @@
 
 <script>
     export default {
-        props:['pageCount'],
+        props:['pageCount', 'initPage'],
         data(){
             return {
                 curPage: 1,
             };
+        },
+        created(){
+            if(this.initPage !== 1 && this.initPage){
+                this.curPage = this.initPage;
+            }
         },
         computed:{
             middlePages(){

@@ -1,5 +1,5 @@
 <template lang="html">
-    <paginator :pageCount="pageCount" @togglePage="togglePage($event)"></paginator>
+    <paginator :pageCount="pageCount" :initPage="initPage" @togglePage="togglePage($event)"></paginator>
 </template>
 
 <script>
@@ -11,10 +11,12 @@
         },
         data(){
             return{
-                pageCount: 25
-            }
+                pageCount: 25,
+                initPage: 1
+            };
         },
         created(){
+            this.initPage = 3;
             console.log(paginator);
         },
         methods:{
