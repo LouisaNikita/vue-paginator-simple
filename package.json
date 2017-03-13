@@ -1,11 +1,11 @@
 {
     "name": "vue-paginator-simple",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A simple paginator for vue.js.",
     "main": "dist/vue-paginator-simple.js",
     "scripts": {
         "dev": "webpack-dev-server --config=webpack.example.config.js --hot --host=0.0.0.0 --port=8800",
-        "build": "webpack --bail --config=webpack.config.js --progress"
+        "build": "webpack -p --config=webpack.config.js --progress"
     },
     "repository": {
         "type": "git",
