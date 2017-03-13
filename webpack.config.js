@@ -36,10 +36,10 @@ var config = {
         // }),
         new ExtractTextPlugin('vue-paginator-simple.css')
     ],
-    resolve: {
-        alias: {
-            'vue': 'vue/dist/vue.js'
-        }
-    },
+    // resolve: {
+    //     alias: {
+    //         'vue': 'vue/dist/vue.js'
+    //     }
+    // },
 };
 module.exports = config;

@@ -1,3 +1,2 @@
-import Vue from 'vue';
-const paginator = Vue.extend(require('./paginator.vue'));
+import paginator from './paginator.vue';
 export default paginator;
