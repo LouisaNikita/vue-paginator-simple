@@ -1,6 +1,23 @@
 # vue-paginator-simple
 A simple paginator/pagination for vue
 
+## demo images
+当页数小于999(包括999)页时
+
+![image](https://github.com/LouisaNikita/resource/blob/master/vue-paginator-simple-1.png)
+
+当页数大于999页时
+
+![image](https://github.com/LouisaNikita/resource/blob/master/vue-paginator-simple-2.png)
+
+首页或尾页disabled
+
+![image](https://github.com/LouisaNikita/resource/blob/master/vue-paginator-simple-4.png)
+
+10页之内显示
+
+![image](https://github.com/LouisaNikita/resource/blob/master/vue-paginator-simple-3.png)
+
 ## Installation
 
 ```
