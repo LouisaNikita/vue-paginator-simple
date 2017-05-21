@@ -1,0 +1,44 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "globals": {
+        "__dirname": true,
+        "process": true,
+        "PRODUCTION": true,
+        "APP_CONFIG": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "warn", "single", {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-multiple-empty-lines": ["warn", {
+            "max": 1
+        }],
+        "no-tabs": ["warn"],
+        "no-trailing-spaces": ["warn"],
+        "no-console": "off"
+    },
+    "plugins": ["eslint-plugin-html"]
+}

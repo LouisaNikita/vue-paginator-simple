@@ -2,11 +2,15 @@
     <div class="pagination">
         <ul>
             <li :class="{disabled: curPage == 1}" @click="prevPage" v-if="pageCount > 1">上一页</li>
-            <li :class="{active: curPage == 1}" @click="page(1)">1</li>
+            <li :class="{active: curPage == 1}" @click="page(1)"><a :href="path+'1'">1</a></li>
             <li class="ellipsis" v-show="curPage > 5 && pageCount > 10">...</li>
-            <li :class="{active: curPage == index+offset}" v-for="(item,index) in middlePages" @click="page(index+offset)">{{index+offset}}</li>
+            <li :class="{active: curPage == index+offset}" v-for="(item,index) in middlePages" @click="page(index+offset)">
+                <a :href=path+(index+offset)>{{index+offset}}</a>
+            </li>
             <li class="ellipsis" v-show="curPage < bigLimit && pageCount > 10">...</li>
-            <li :class="{active: curPage == pageCount}" @click="page(pageCount)" v-if="pageCount > 1">{{pageCount}}</li>
+            <li :class="{active: curPage == pageCount}" @click="page(pageCount)" v-if="pageCount > 1">
+                <a :href=path+pageCount>{{pageCount}}</a>
+            </li>
             <li :class="{disabled: curPage == pageCount}" @click="nextPage" v-if="pageCount > 1">下一页</li>
         </ul>
     </div>
@@ -14,7 +18,29 @@
 
 <script>
     export default {
-        props:['pageCount', 'initPage'],
+        // props:['pageCount', 'initPage', 'pagePath'],
+        props: {
+            pageCount: {
+                type: Number,
+                default: 1
+            },
+            initPage: {
+                type: Number,
+                default: 1
+            },
+            pagePath: {
+                type: String
+            },
+            host: {
+                type: String
+            },
+            // color: {
+            //     default: ''
+            // },
+            // borderRadius: {
+            //     default: '0'
+            // }
+        },
         data(){
             return {
                 curPage: 1,
@@ -22,10 +48,18 @@
         },
         created(){
             if(this.initPage !== 1 && this.initPage){
-                this.curPage = this.initPage;
+                this.curPage = Number(this.initPage);
+            }
+        },
+        watch:{
+            initPage(val){
+                this.curPage = val;
             }
         },
         computed:{
+            path(){
+                return this.host+this.pagePath+'&page=';
+            },
             middlePages(){
                 if(this.pageCount <= 2){
                     return 0;
@@ -68,28 +102,35 @@
 </script>
 
 <style lang="css" scoped>
-    .pagination{
-        width: 100%;
+    .pagination {
         text-align: center;
-    }
-    .pagination > ul{
-        margin: 40px 0 60px 0;
-    }
-    .pagination > ul > li{
-        cursor: pointer;
-        display: inline-block;
-        padding: 5px 9px;
-        border: 1px solid #e1e1eb;
-        margin-right: 5px;
-    }
-    .pagination > ul > li.active{
-        background: #4078c0;
-        color: #fff;
-    }
-    .pagination > ul > li.ellipsis{
-        border: none;
-    }
-    .pagination > ul > li.disabled{
-        color: #dcdcdc;
+        ul {
+            li {
+                cursor: pointer;
+                display: inline-block;
+                padding: 5px 9px;
+                border: 1px solid #e7e7e7;
+                border-radius: 5px;
+                margin-right: 12px;
+                &.active {
+                    background: #ee3a4a;
+                    a {
+                        color: #fff;
+                    }
+                }
+                &.ellipsis {
+                    /*border: none;*/
+                }
+                &.disabled {
+                    color: #a7adb9;
+                }
+            }
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+            cursor: pointer;
+        }
     }
 </style>

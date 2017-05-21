@@ -1,5 +1,5 @@
 <template lang="html">
-    <paginator :pageCount="pageCount" :initPage="initPage" @togglePage="togglePage($event)"></paginator>
+    <paginator :pageCount="pageCount" :initPage="initPage" :pagePath="pagePath" :host="host" @togglePage="togglePage($event)"></paginator>
 </template>
 
 <script>
@@ -12,8 +12,14 @@
         data(){
             return{
                 pageCount: 25,
-                initPage: 1
+                initPage: 1,
+                pagePath: '/list',
             };
+        },
+        computed:{
+            host(){
+                return window.location.origin;
+            }
         },
         created(){
             this.initPage = 3;
@@ -24,5 +30,5 @@
                 console.log(index);
             }
         }
-    }
+    };
 </script>

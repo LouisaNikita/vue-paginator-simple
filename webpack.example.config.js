@@ -1,5 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const postcss = require('./postcss.config.js');
 
 var config = {
     entry: './example/index',
@@ -30,7 +32,12 @@ var config = {
         new HtmlWebpackPlugin({
             template: './example/index.html'
         }),
-        new ExtractTextPlugin('vue-paginator-simple.css')
+        new ExtractTextPlugin('vue-paginator-simple.css'),
+        new webpack.LoaderOptionsPlugin({
+            vue: {
+                postcss: postcss.plugins
+            }
+        }),
     ],
     resolve: {
         alias: {
