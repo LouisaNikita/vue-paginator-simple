@@ -1,6 +1,8 @@
 # vue-paginator-simple
 A simple paginator/pagination for vue
+this version is for SEO which can change url,for example:www.xxx.com/?page=1
 
+## readme待补充完整
 ## demo images
 当页数小于999(包括999)页时
 
