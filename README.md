@@ -63,3 +63,26 @@ pageCount //总页数
     @import 'vue-paginator-simple/dist/vue-paginator-simple.css';
 </style>
 ```
+
+## Construction
+```
+.
+├── _config.yml
+├── dist
+│   ├── vue-paginator-simple.css
+│   └── vue-paginator-simple.js
+├── example
+│   ├── app.vue
+│   ├── index.html
+│   └── index.js
+├── package.json
+├── postcss.config.js
+├── README.md
+├── src
+│   ├── index.js
+│   └── paginator.vue
+├── webpack.config.js
+└── webpack.example.config.js
+```
+
+
