@@ -1,14 +1,14 @@
 <template lang="html">
     <div class="pagination">
-        <ul>
+        <ul @click="page($event)">
             <li :class="{disabled: curPage == 1}" @click="prevPage" v-if="pageCount > 1">上一页</li>
-            <li :class="{active: curPage == 1}" @click="page(1)"><a :href="path+'1'">1</a></li>
+            <li :class="{active: curPage == 1}"><a :href="path+'1'">1</a></li>
             <li class="ellipsis" v-show="curPage > 5 && pageCount > 10">...</li>
-            <li :class="{active: curPage == index+offset}" v-for="(item,index) in middlePages" @click="page(index+offset)">
+            <li :class="{active: curPage == index+offset}" v-for="(item,index) in middlePages">
                 <a :href=path+(index+offset)>{{index+offset}}</a>
             </li>
             <li class="ellipsis" v-show="curPage < bigLimit && pageCount > 10">...</li>
-            <li :class="{active: curPage == pageCount}" @click="page(pageCount)" v-if="pageCount > 1">
+            <li :class="{active: curPage == pageCount}" v-if="pageCount > 1">
                 <a :href=path+pageCount>{{pageCount}}</a>
             </li>
             <li :class="{disabled: curPage == pageCount}" @click="nextPage" v-if="pageCount > 1">下一页</li>
@@ -58,7 +58,7 @@
         },
         computed:{
             path(){
-                return this.host+this.pagePath+'&page=';
+                return this.host+this.pagePath+'?page=';
             },
             middlePages(){
                 if(this.pageCount <= 2){
@@ -83,16 +83,25 @@
             }
         },
         methods:{
-            page(indexPage){
-                this.$emit('togglePage',indexPage);
-                this.curPage = indexPage;
+            page(e){
+                let target = e.target;
+                console.log('target',target,e);
+                let n = target.innerText;
+                console.log(Number(n));
+                if(Number(n)){
+                    console.log('inisde');
+                    this.$emit('togglePage',Number(n));
+                    this.curPage = Number(n);
+                }
             },
             prevPage(){
+                event.stopPropagation();
                 if(this.curPage != 1){
                     this.page(this.curPage-1);
                 }
             },
             nextPage(){
+                event.stopPropagation();
                 if(this.curPage != this.pageCount){
                     this.page(this.curPage+1);
                 }
@@ -114,6 +123,7 @@
                 margin-right: 12px;
                 &.active {
                     background: #ee3a4a;
+                    border-color: #ee3a4a;
                     a {
                         color: #fff;
                     }

@@ -13,7 +13,7 @@
             return{
                 pageCount: 25,
                 initPage: 1,
-                pagePath: '/list',
+                pagePath: '/',
             };
         },
         computed:{
@@ -22,12 +22,18 @@
             }
         },
         created(){
-            this.initPage = 3;
+            this.initPage = Number(this.getParam('page') ? this.getParam('page') : 1);
             console.log(paginator);
         },
         methods:{
             togglePage(index){
                 console.log(index);
+            },
+            getParam(name) {
+                var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return (r[2]);
+                return null;
             }
         }
     };
