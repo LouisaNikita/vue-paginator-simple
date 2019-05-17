@@ -1,4 +1,4 @@
-[https://img.shields.io/crates/d/rustc-serialize.svg]
+[![](https://img.shields.io/npm/dw/localeval.svg)]
 # vue-paginator-simple
 A simple paginator/pagination for vue
 
