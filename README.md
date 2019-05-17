@@ -1,3 +1,4 @@
+[https://img.shields.io/crates/d/rustc-serialize.svg]
 # vue-paginator-simple
 A simple paginator/pagination for vue
 
